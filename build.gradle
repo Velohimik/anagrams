@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+}
+
+group = 'ua.com.foxminded.anagrams'
+version = '1.0-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.8.0'
+	implementation 'com.google.guava:guava:31.1-jre'
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'ua.com.foxminded.anagrams.Main'
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
